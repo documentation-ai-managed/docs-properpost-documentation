@@ -1,0 +1,139 @@
+---
+title: Configuration and Management
+description: Customize your Properpost environment with settings for themes, integrations, and access controls. Learn how to tailor the platform to your team's needs.
+---
+
+## Overview
+
+Properpost provides flexible configuration options to match your team's workflow. You customize themes for branding, manage users and roles for security, connect integrations for extended functionality, and set up backups for data safety. Access these settings from the Admin Dashboard at `https://app.properpost.com/admin/settings`.
+
+<Columns cols={2}>
+  <Card title="Quick Start" icon="settings" href="#theme-setup">
+    Configure your first theme in under 5 minutes.
+  </Card>
+  <Card title="Security First" icon="shield" href="#user-management">
+    Set up roles and permissions securely.
+  </Card>
+  <Card title="Integrate Seamlessly" icon="plug" href="#integrations">
+    Connect your favorite tools.
+  </Card>
+  <Card title="Data Safety" icon="database" href="#backups">
+    Enable automated backups.
+  </Card>
+</Columns>
+
+## Theme and Branding Setup
+
+Tailor Properpost's appearance to your brand. Update colors, logos, and fonts via the Theme Editor.
+
+<Steps>
+  <Step title="Access Theme Settings" icon="palette">
+    Navigate to Admin > Themes.
+  </Step>
+  <Step title="Upload Assets" icon="upload">
+    Add your logo (PNG, `<200KB`) and favicon.
+  </Step>
+  <Step title="Set Colors" icon="droplet">
+    Enter your primary color, such as `#040404`.
+  </Step>
+  <Step title="Preview and Save" icon="eye">
+    Preview changes and publish.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="JSON,Environment">
+```json
+{
+  "primaryColor": "#040404",
+  "logoUrl": "https://yourdomain.com/logo.png",
+  "fontFamily": "Inter, sans-serif"
+}
+```
+
+```bash
+PROPERPOST_PRIMARY_COLOR=#040404
+PROPERPOST_LOGO_URL=https://yourdomain.com/logo.png
+```
+</CodeGroup>
+
+<Callout kind="tip">
+  Test themes in preview mode before publishing to avoid disrupting users.
+</Callout>
+
+## User and Role Management
+
+Control access with predefined roles. Assign permissions to teams for secure collaboration.
+
+| Role       | View Posts | Edit Posts | Manage Users | Admin Access |
+|------------|------------|------------|--------------|--------------|
+| Viewer     | ✅         | ❌         | ❌           | ❌           |
+| Editor     | ✅         | ✅         | ❌           | ❌           |
+| Admin      | ✅         | ✅         | ✅           | ✅           |
+
+<Expandable title="Custom Role Creation" default-open="false">
+
+Create custom roles via API or dashboard:
+
+```javascript
+await properpost.roles.create({
+  name: "Content Lead",
+  permissions: ["posts:read", "posts:edit", "analytics:view"]
+});
+```
+
+</Expandable>
+
+## Integration Options
+
+Connect Properpost to external services for automation.
+
+<Tabs>
+  <Tab title="Slack" icon="message-circle">
+    Send post notifications to Slack channels.
+
+    ```javascript
+    // In Properpost dashboard: Integrations > Slack
+    const webhookUrl = "https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX";
+    ```
+  </Tab>
+  <Tab title="GitHub" icon="github">
+    Sync posts with GitHub repos.
+
+    ```bash
+    PROPERPOST_GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    PROPERPOST_GITHUB_REPO=your-org/properpost-docs
+    ```
+  </Tab>
+  <Tab title="Zapier" icon="zap">
+    Build no-code workflows.
+
+    Visit `https://zapier.com/apps/properpost/integrations`.
+  </Tab>
+</Tabs>
+
+## Backup and Export Settings
+
+Protect your data with scheduled backups and exports.
+
+Enable daily backups in Admin > Backups. Exports include posts, users, and settings in JSON or CSV.
+
+```json
+{
+  "backupSchedule": "0 2 * * *",
+  "retentionDays": 30,
+  "exportFormat": "json"
+}
+```
+
+<Callout kind="alert">
+  Verify backups monthly to ensure data integrity.
+</Callout>
+
+<Columns cols={2}>
+  <Card title="API Backup" icon="code" href="/docs/api/backups">
+    Automate via REST API.
+  </Card>
+  <Card title="Enterprise Export" icon="download" href="/docs/enterprise">
+    Advanced options for large teams.
+  </Card>
+</Columns>

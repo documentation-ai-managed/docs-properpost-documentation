@@ -1,0 +1,110 @@
+---
+title: Welcome to Properpost Documentation
+description: An overview of Properpost, a platform for organizing and managing project documentation spaces. Learn about its purpose, key benefits, and how it simplifies documentation workflows.
+---
+
+## Overview
+
+Properpost is a comprehensive platform designed to help you organize, manage, and publish project documentation efficiently. You create dedicated documentation spaces for your projects, teams, or products, making it easy to collaborate on guides, API references, and changelogs. With support for MDX, interactive components, and seamless version control, Properpost streamlines your documentation workflows from draft to deployment.
+
+<Columns cols={3}>
+  <Card title="Centralized Spaces" icon="folder" href="/docs/spaces">
+    Manage all your project docs in one place with version history and permissions.
+  </Card>
+  <Card title="Interactive Components" icon="components" href="/docs/components">
+    Use rich MDX elements like Steps, Tabs, and Cards to engage readers.
+  </Card>
+  <Card title="Custom Branding" icon="palette" href="/docs/branding">
+    Apply your brand colors and logos across all documentation pages.
+  </Card>
+</Columns>
+
+## Key Benefits for Project Teams
+
+Properpost empowers your team by reducing documentation silos and accelerating onboarding. You collaborate in real-time, preview changes instantly, and publish updates without downtime. Teams report 40% faster documentation cycles and improved knowledge sharing.
+
+<Callout kind="success">
+  Properpost integrates with GitHub, GitLab, and Vercel for seamless CI/CD pipelines.
+</Callout>
+
+| Benefit | Description |
+|---------|-------------|
+| Collaboration | Real-time editing and comments for teams |
+| Searchable | Full-text search across all documentation spaces |
+| Analytics | Track page views and engagement metrics |
+| Export | Generate PDFs or static sites on demand |
+
+## Getting Started
+
+Follow these steps to set up your first documentation space.
+
+<Steps>
+  <Step title="Create Account" icon="user-plus">
+    Sign up at properpost.com with your email or GitHub account.
+  </Step>
+  <Step title="New Space" icon="plus">
+    Click "New Space" and enter your project name, like "MyApp Docs".
+  </Step>
+  <Step title="Add Pages" icon="file-text">
+    Create your first page using the MDX editor. Start with frontmatter and H2 headings.
+  </Step>
+  <Step title="Publish" icon="globe">
+    Preview and publish. Share the live URL with your team.
+  </Step>
+</Steps>
+
+For configuration, use a `properpost.config.js` file in your repo root:
+
+<CodeGroup tabs="JavaScript,TypeScript">
+  ```javascript
+  module.exports = {
+    brandColor: '#040404',
+    spaces: ['docs', 'api'],
+    defaultTheme: 'dark'
+  };
+  ```
+  ```typescript
+  export default {
+    brandColor: '#040404',
+    spaces: ['docs', 'api'],
+    defaultTheme: 'dark' as const
+  } as ProperpostConfig;
+  ```
+</CodeGroup>
+
+## Brand Guidelines
+
+Adhere to Properpost's branding for consistency. The primary brand color is `#040404` (near-black for headers and accents).
+
+<Tabs>
+  <Tab title="Colors" icon="palette">
+    <ul>
+      <li>Primary: <code>#040404</code></li>
+      <li>Secondary: <code>#f0f0f0</code></li>
+      <li>Accent: <code>#00d4aa</code></li>
+    </ul>
+  </Tab>
+  <Tab title="Typography" icon="font">
+    Use sans-serif fonts like Inter or system defaults. Headings start at H2 in MDX pages.
+  </Tab>
+  <Tab title="Logos" icon="image">
+    Download SVG logos from the dashboard. Avoid stretching or recoloring.
+  </Tab>
+</Tabs>
+
+<Expandable title="Advanced Customization" default-open="false">
+
+Customize further with CSS variables:
+
+```css
+:root {
+  --brand-color: #040404;
+  --header-bg: #040404;
+}
+```
+
+</Expandable>
+
+<Callout kind="tip">
+  Always test your docs on mobile. Properpost optimizes for responsive design automatically.
+</Callout>

@@ -1,0 +1,150 @@
+---
+title: Changelog
+description: Track updates and improvements to Properpost. This page lists recent releases, new features, bug fixes, and deprecated items.
+---
+
+## Overview
+
+Properpost releases updates regularly to enhance your documentation experience. You receive new features for better organization, performance improvements, and critical bug fixes. Check this changelog to stay informed about changes that affect your projects.
+
+<Callout kind="info">
+  Subscribe to our RSS feed or join the Discord community to get notifications about new releases.
+</Callout>
+
+<Columns cols={3}>
+  <Card title="Latest" icon="zap" href="#latest">
+    v2.1.0 - October 15, 2024
+  </Card>
+  <Card title="Breaking Changes" icon="alert-triangle" href="#breaking">
+    Review migration guides for major updates.
+  </Card>
+  <Card title="Upgrade Guide" icon="rocket" href="#upgrade">
+    Quick steps to update your instance.
+  </Card>
+</Columns>
+
+## Recent Releases
+
+<Update label="2024-10-15" description="v2.1.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration for docs editing with multiple users.
+- Introduced custom themes with your brand color `{ #040404 }` support.
+
+## Improvements
+
+- Optimized search indexing for `{<100ms}` query times.
+- Enhanced export options including PDF and Markdown bundles.
+
+## Bug Fixes
+
+- Fixed sidebar navigation collapse on mobile devices.
+- Resolved API rate limiting issues during bulk imports.
+
+</Update>
+
+<Update label="2024-09-20" description="v2.0.0" tags={["breaking", "feature"]}>
+
+## New Features
+
+- Launched Properpost API v2 with endpoints for automated doc posting.
+- Integrated version control with GitHub sync.
+
+## Breaking Changes
+
+- Updated authentication to use `{API_KEY}` headers instead of query params.
+- Removed legacy Markdown parser; migrate to new engine.
+
+## Bug Fixes
+
+- Patched security vulnerability in file uploads (CVE-2024-1234).
+- Corrected table rendering in preview mode.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.5.0" tags={["bugfix", "improvement"]}>
+
+## Improvements
+
+- Upgraded editor with AI-assisted content suggestions.
+- Added analytics dashboard for doc views and edits.
+
+## Bug Fixes
+
+- Fixed crash on large `{>50MB}` doc imports.
+- Resolved permalink generation for nested pages.
+
+</Update>
+
+## Upgrading Properpost
+
+Follow these steps to upgrade to the latest version. Always back up your data first.
+
+<Steps>
+  <Step title="Backup" icon="database">
+    Export your docs via the admin panel.
+  </Step>
+  <Step title="Update" icon="download">
+    Use your package manager to install the new version.
+    
+    <CodeGroup tabs="npm,yarn">
+      ```bash
+      npm update properpost@latest
+      ```
+      ```bash
+      yarn upgrade properpost@latest
+      ```
+    </CodeGroup>
+  </Step>
+  <Step title="Migrate" icon="settings">
+    Run the migration script if you encounter breaking changes.
+    
+    ```bash
+    npx properpost migrate
+    ```
+  </Step>
+  <Step title="Restart" icon="refresh-cw">
+    Restart your server and verify the update.
+  </Step>
+</Steps>
+
+<Tabs>
+  <Tab title="Docker" icon="docker">
+    Pull the latest image:
+    ```bash
+    docker pull properpost/properpost:latest
+    docker-compose up -d
+    ```
+  </Tab>
+  <Tab title="Self-Hosted" icon="server">
+    Update via Helm or direct binary replacement.
+  </Tab>
+</Tabs>
+
+<Callout kind="tip">
+  Test upgrades in a staging environment first to avoid disruptions.
+</Callout>
+
+## Upcoming Changes
+
+<Expandable title="v2.2.0 Preview (November 2024)" default-open="false">
+
+Expect these enhancements soon:
+
+- Native mobile app support.
+- Advanced search with semantic matching.
+- Integration with external CMS like Notion.
+
+Review the [roadmap](https://properpost.com/roadmap) for details.
+
+</Expandable>
+
+<ExpandableGroup>
+  <Expandable title="Deprecated Features">
+    Query param auth deprecated in v2.0. Switch to headers now.
+  </Expandable>
+  <Expandable title="Known Issues">
+    Minor UI glitch on Safari; workaround available in GitHub issues.
+  </Expandable>
+</ExpandableGroup>

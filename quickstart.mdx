@@ -1,0 +1,115 @@
+---
+title: Quickstart Guide
+description: Get up and running with Properpost in minutes. This guide covers initial setup, creating your first documentation space, and basic navigation.
+---
+
+## Overview
+
+Properpost lets you create organized documentation spaces for your projects. You start by signing up, then build your first space, explore the interface, and upload content. Follow these steps to launch your documentation in under 5 minutes.
+
+<Callout kind="tip">
+  New to Properpost? Use your GitHub account for seamless signup and repo integration later.
+</Callout>
+
+## Create Your Account
+
+Sign up and log in to access your dashboard.
+
+<Steps>
+  <Step title="Visit Properpost" icon="globe">
+    Open your browser and navigate to `properpost.com`. Click **Sign Up**.
+  </Step>
+  <Step title="Choose Sign-Up Method" icon="user-plus">
+    Select **Continue with GitHub** or enter your email and password. Verify your email if prompted.
+  </Step>
+  <Step title="Complete Onboarding" icon="check-circle">
+    Answer basic questions about your project. You land on the dashboard.
+  </Step>
+</Steps>
+
+## Create Your First Documentation Space
+
+Spaces organize your docs like folders for projects.
+
+<Steps>
+  <Step title="Click New Space" icon="plus">
+    From the dashboard, select **New Space**.
+  </Step>
+  <Step title="Configure Space" icon="settings">
+    Enter a name like `My Project Docs`, add a description, and choose visibility (public or private).
+  </Step>
+  <Step title="Publish Space" icon="rocket">
+    Click **Create**. Your space appears in the sidebar.
+  </Step>
+</Steps>
+
+## Interface Tour
+
+Familiarize yourself with key areas using these sections.
+
+<Columns cols={3}>
+  <Card title="Dashboard" icon="layout-dashboard" href="/docs/dashboard">
+    Overview of your spaces, recent edits, and analytics.
+  </Card>
+  <Card title="Editor" icon="edit-3" href="/docs/editor">
+    Write MDX docs with live preview and version control.
+  </Card>
+  <Card title="Spaces Sidebar" icon="folders" href="/docs/spaces">
+    Switch between projects and manage permissions.
+  </Card>
+</Columns>
+
+## Upload Your First Document
+
+Add content to your space via upload, creation, or import.
+
+<Tabs>
+  <Tab title="Upload File" icon="upload">
+    <Steps>
+      <Step title="Select Upload">
+        In your space, click **Upload** > **File**.
+      </Step>
+      <Step title="Choose Document">
+        Pick a Markdown file like `README.md`.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Create New" icon="plus">
+    Click **New Document**. Use this starter template:
+
+    <CodeGroup tabs="MDX,Markdown">
+    ````mdx
+    ---
+    title: My First Doc
+    description: Welcome to my documentation.
+    ---
+
+    ## Introduction
+
+    Start writing here.
+    ````
+
+    ```markdown
+    # My First Doc
+
+    ## Introduction
+
+    Start writing here.
+    ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="Import from GitHub" icon="github">
+    Connect your repo:
+
+    ```bash
+    # In space settings, paste your repo URL
+    https://github.com/yourusername/myproject
+    ```
+
+    Properpost syncs branches automatically.
+  </Tab>
+</Tabs>
+
+## Next Steps
+
+Customize your space with themes (brand color `#040404`), invite collaborators, or integrate APIs. Explore the <Card title="Full Docs" icon="book-open" href="/docs" horizontal>Complete reference here.</Card> Your documentation is now live—share the space URL with your team.
